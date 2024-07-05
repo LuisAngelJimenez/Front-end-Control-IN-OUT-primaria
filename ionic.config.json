@@ -1,0 +1,7 @@
+{
+  "name": "control-IN-OUT-primaria",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
