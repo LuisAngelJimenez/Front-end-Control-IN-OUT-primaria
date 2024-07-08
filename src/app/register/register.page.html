@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Registrar niño
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="register()">
+    <ion-item>
+      <ion-label position="floating">Nombre del niño</ion-label>
+      <ion-input type="text" [(ngModel)]="username" name="username" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="lastname" name="lastname" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">edad</ion-label>
+      <ion-input type="number" [(ngModel)]="edad" name="edad" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">grupo</ion-label>
+      <ion-input type="text" [(ngModel)]="grupo" name="grupo" required></ion-input>
+    </ion-item>
+    
+    <ion-button type="submit" expand="block">Registrarse</ion-button>
+  </form>
+</ion-content>
