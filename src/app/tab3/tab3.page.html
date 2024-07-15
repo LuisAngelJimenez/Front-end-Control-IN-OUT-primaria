@@ -1,17 +1,40 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Ajustes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Notificaciones</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tema Oscuro</ion-label>
+      <ion-toggle (ionChange)="toggleTheme($event)" slot="end"></ion-toggle>
+    </ion-item>
+      <!-- Otras opciones -->
+    <ion-item>
+      <ion-label>Idioma</ion-label>
+      <ion-select>
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="en">Inglés</ion-select-option>
+        <ion-select-option value="en">Frances</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item routerLink="/change-password">
+      <ion-label>Cambiar Contraseña</ion-label>
+    </ion-item>
+    <!-- <ion-item (click)="logout()">
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-label>Enviar Feedback</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Limpiar Caché</ion-label>
+    </ion-item> -->
+  </ion-list>
 </ion-content>
+
