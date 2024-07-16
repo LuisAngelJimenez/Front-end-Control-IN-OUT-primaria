@@ -1,17 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Bienvenido
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>3°-A</ion-card-subtitle>
+      <ion-card-title>Omar Gonzalez Ruiz</ion-card-title>
+    </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card-content>
+      Salió a las <strong>1:35 PM</strong>
+      <ion-button expand="block" fill="clear" shape="round" (click)="openQrModal()">
+        Generar código
+      </ion-button>
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>
