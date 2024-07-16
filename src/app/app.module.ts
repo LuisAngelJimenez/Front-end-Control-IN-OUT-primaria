@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -11,10 +11,23 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { FormsModule } from '@angular/forms';
 import { LoginPage } from './login/login.page';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { QrModalComponent } from './qr-modal/qr-modal.component';
+import { QRCodeModule } from 'angularx-qrcode';
+
+
 @NgModule({
-  declarations: [AppComponent,LoginPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, IonicStorageModule.forRoot()],
+  declarations: [AppComponent,LoginPage,QrModalComponent],
+  imports: [BrowserModule,
+     IonicModule.forRoot(),
+      AppRoutingModule,
+      FormsModule,
+      IonicStorageModule.forRoot(),
+      QRCodeModule
+    ],
+
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
