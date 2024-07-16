@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,7 +8,7 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./tab3.page.scss'],
 })
 export class Tab3Page {
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage,private authService: AuthService) {
     this.initializeApp();
   }
 
@@ -25,6 +26,10 @@ export class Tab3Page {
 
   setTheme(isDark: boolean) {
     document.body.classList.toggle('dark', isDark);
+  }
+  logout(){
+      // Llama al método de logout en tu servicio de autenticación
+      this.authService.logout();
   }
 }
 
