@@ -1,34 +1,30 @@
-// auth.service.ts
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  private users = [
-    { email: 'user1@example.com', password: 'password1' },
-    { email: 'user2@example.com', password: 'password2' },
-    // Agrega más usuarios falsos si es necesario
-  ];
+  private authenticated = false;
 
-  constructor() {}
 
-  login(email: string, password: string): boolean {
-    const user = this.users.find((u) => u.email === email && u.password === password);
-    if (user) {
-      // Guarda el estado de autenticación (por ejemplo, en el almacenamiento local)
+  constructor(private router: Router) { }
+
+  login(username: string, password: string): boolean {
+    if (username === 'admin' && password === 'admin') {
+      this.authenticated = true;
+      this.router.navigate(['/tabs/tab1']);
       return true;
     }
     return false;
   }
 
-  logout(): void {
-    // Elimina el estado de autenticación
+  logout() {
+    this.authenticated = false;
+    this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
-    // Verifica si el usuario está autenticado
-    // (por ejemplo, consultando el estado guardado)
-    return false;
+    return this.authenticated;
   }
 }
