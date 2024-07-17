@@ -27,9 +27,10 @@ export class Tab3Page {
   setTheme(isDark: boolean) {
     document.body.classList.toggle('dark', isDark);
   }
-  logout(){
-      // Llama al método de logout en tu servicio de autenticación
-      this.authService.logout();
+
+  logout() {
+    this.authService.logout();
   }
+
 }
 
