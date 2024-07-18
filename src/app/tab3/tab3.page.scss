@@ -1,0 +1,34 @@
+ion-content {
+    --background: #363636; // Cambiar el color de fondo
+  
+    ion-item {
+      //border-bottom: 1px solid #4547d2; // Línea separadora
+      border-width: 1px solid #4547d2; // Línea separadora
+      background: #3b479c; // Fondo blanco para cada item
+      border-radius: 8px; // Bordes redondeados
+      margin: 5px 0; // Margen vertical entre items
+  
+      &:hover {
+        background: #050000; // Cambio de fondo al pasar el mouse
+      }
+    }
+  
+    ion-label {
+      font-size: 16px; // Tamaño de fuente del label
+      color: #fcfcfc; // Color del texto
+    }
+  
+    ion-toggle {
+      --background: #050505; // Color de fondo del toggle
+      --color-checked: #3880ff; // Color cuando está activado
+    }
+  
+    ion-select {
+      --padding-start: 16px; // Padding a la izquierda
+      --padding-end: 16px; // Padding a la derecha
+    }
+  
+    ion-icon {
+      color: #888; // Color de los iconos
+    }
+  }
