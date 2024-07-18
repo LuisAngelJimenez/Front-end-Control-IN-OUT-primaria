@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private router: Router) { }
 
   login(username: string, password: string): boolean {
-    if (username === 'admin' && password === 'admin') {
+    if (username === 'admin@gmail.com' && password === 'admin') {
       this.authenticated = true;
       this.router.navigate(['/tabs/tab1']);
       return true;
