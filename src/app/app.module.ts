@@ -6,9 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IonicStorageModule } from '@ionic/storage-angular';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './login/login.page';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
@@ -23,7 +22,8 @@ import { QRCodeModule } from 'angularx-qrcode';
       AppRoutingModule,
       FormsModule,
       IonicStorageModule.forRoot(),
-      QRCodeModule
+      QRCodeModule,
+      ReactiveFormsModule
     ],
 
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

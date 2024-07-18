@@ -1,24 +1,37 @@
-<div class="flex h-screen bg-blue-100">
-  <!-- Imagen a la izquierda -->
-  <div class="w-1/2 flex items-center justify-center">
-    <div class="bg-white p-1 rounded-lg shadow-md max-w-xs">
-      <img src="././assets/img/_cd595bdd-5326-4a09-a771-c250c14d6c40.jpg" alt="Imagen de inicio de sesión" class="rounded-lg shadow-md">
-    </div>
-  </div>
-
-  <!-- Formulario a la derecha -->
-  <div class="w-1/2 flex items-center p-6 justify-center">
-    <form class="w-full max-w-sm" (ngSubmit)="login()">
-      <h1 class="text-2xl font-bold mb-4">Iniciar para el sistema, necesita sesión</h1>
-      <div class="mb-4">
-        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Correo electrónico</label>
-        <input type="email" id="email" name="email" placeholder="nombre@dominio.com" class="w-full px-3 py-2 border rounded-lg">
-      </div>
-      <div class="mb-4">
-        <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
-        <input type="password" id="password"  name="password" placeholder="*******" class="w-full px-3 py-2 border rounded-lg">
-      </div>
-      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg w-full">Iniciar sesión</button>
+<div class="centradot">
+  <ion-card shape="round" color="light">
+    <ion-card-header>
+      <img alt="Logo de nuestra app" class="imagen-grande" src="./assets/img/storeify.png" />
+      <br>
+      <ion-card-title class="tit">👋 Bienvenido 👋</ion-card-title>
+      <br>
+      <ion-card-subtitle class="centrado">Ingresa tu correo y contraseña!!!</ion-card-subtitle>
+      <br>
+    </ion-card-header>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" color="light">
+      <ion-item color="light">
+        <ion-input color="light" formControlName="email" labelPlacement="stacked" label="Email"
+          placeholder="email@domain.com">
+          <ion-icon slot="start" name="mail" aria-hidden="true"></ion-icon>
+          <ion-button fill="clear" slot="end" aria-label="Show/hide">
+            <ion-icon slot="start" name="at" aria-hidden="true"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+      <ion-item color="light">
+        <ion-input color="light" formControlName="password" labelPlacement="stacked" label="Password"
+          placeholder="*******">
+          <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+          <ion-button fill="clear" slot="end" aria-label="Show/hide">
+            <ion-icon slot="start" name="finger-print" aria-hidden="true"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" class="centrado">Iniciar sesión</ion-button>
+      <br>
+      <ion-label color="secondary" class="centrado">¿No tienes cuenta? <a href=""> Registrate</a></ion-label>
+      <br>
     </form>
-  </div>
+  </ion-card>
 </div>
