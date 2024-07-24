@@ -10,6 +10,11 @@ import { AuthService } from '../services/auth.service';
 export class Tab3Page {
   constructor(private storage: Storage,private authService: AuthService) {
     this.initializeApp();
+    
+  }
+
+  cambiarIdioma(idiomaSeleccionado: string) {
+   
   }
 
   async initializeApp() {

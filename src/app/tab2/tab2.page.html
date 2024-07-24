@@ -1,50 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Entradas y salidas
+      Historial
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Contenido dentro de ion-content debe incluir ion-header -->
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Entradas-Salidas</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card *ngFor="let chico of chamaco">
+  <!-- Aquí va el contenido principal de la página -->
+  <ion-card class="ion-text-center ion-align-items-center ion-justify-content-center" *ngFor="let persona of personas">
     <ion-card-header>
-      <ion-card-title>{{chico.name}}</ion-card-title>
+      <ion-card-title>{{ persona.nombre }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Entro a las:
-      <ion-icon slot="start" color="danger" name="arrow-up-circle-outline"></ion-icon>
-      <!--Aqui se obtendra el parametro created at de la base de datos-->
-      <strong>12:30pm</strong>
-      <br>
-      <ion-button expand="block" (click)="setOpen(true)">Historial</ion-button>
-      <ion-modal [isOpen]="isModalOpen">
-        <ng-template>
-          <ion-header>
-            <ion-toolbar>
-              <ion-title>Entradas y salidas de </ion-title>
-              <ion-buttons slot="end">
-                <ion-button (click)="setOpen(false)">cerrar</ion-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content class="ion-padding">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
-              reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui.
-              Eaque,
-              dicta.
-            </p>
-          </ion-content>
-        </ng-template>
-      </ion-modal>
+      <p>Edad: {{ persona.edad }}</p>
+      <p>Email: {{ persona.email }}</p>
+      <p>Grupo: {{ persona.grupo }}</p>
+      <p>Tutor: {{ persona.tutor }}</p>
+
     </ion-card-content>
   </ion-card>
 
 </ion-content>
+
