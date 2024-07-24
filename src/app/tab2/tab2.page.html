@@ -1,11 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Entradas y salidas
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,37 +5,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-
-  <ion-card>
+  <ion-card class="ion-text-center ion-align-items-center ion-justify-content-center" *ngFor="let persona of personas">
     <ion-card-header>
-      <ion-card-title>Jesus perez</ion-card-title>
+      <ion-card-title>{{ persona.nombre }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <p>Edad: {{ persona.edad }}</p>
+      <p>Email: {{ persona.email }}</p>
+      <p>Email: {{ persona.grupo }}</p>
+      <p>Email: {{ persona.tutor }}</p>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Omar arellanes</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Saul uziel</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Luis diaz</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card>
 </ion-content>
+
