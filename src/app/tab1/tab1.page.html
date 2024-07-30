@@ -1,24 +1,94 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Bienvenido
-    </ion-title>
-  </ion-toolbar>
+<ion-header mode="ios" [translucent]="true">
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>3°-A</ion-card-subtitle>
-      <ion-card-title>Omar Gonzalez Ruiz</ion-card-title>
-    </ion-card-header>
-
+<ion-content color="light" mode="ios" [fullscreen]="true">
+  <ion-card class="avatar-card"><br>
+    <ion-avatar class="center-avatar">
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
     <ion-card-content>
-      Salió a las <strong>1:35 PM</strong>
-      <ion-button expand="block" fill="clear" shape="round" (click)="openQrModal()">
-        Generar código
-      </ion-button>
+      <ion-item class="pad">
+        <ion-card-title>Omar Alejandro Gonzalez Ruiz</ion-card-title>
+        <ion-select [multiple]="true">
+          <ion-select-option value="apples">Jose Luis Gonzalez Ruiz</ion-select-option>
+          <ion-select-option value="oranges">Adalis Gonzales Ruiz</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label>Grado: <a>3°</a></ion-label>
+          <ion-label>Fecha: <a>21/07/2024</a></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Grupo: <a>A</a></ion-label>
+          <ion-label>Hra de salida:<a>1:30pm</a></ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-button size="large" shape="round" class="ion-text-wrap" (click)="openQrModal()">
+          GENERAR CODIGO Qr
+          <ion-icon slot="end" name="qr-code-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
     </ion-card-content>
-
   </ion-card>
+
+
+  <ion-list [inset]="true" mode="ios">
+    <ion-item [button]="true" detail="false" mode="ios">
+      <div class="unread-indicator-wrapper" slot="start">
+        <div class="unread-indicator"></div>
+      </div>
+      <ion-label>
+        <strong>Rick Astley</strong>
+        <ion-text>Never Gonna Give You Up</ion-text><br />
+        <ion-note color="medium" class="ion-text-wrap">
+          Never gonna give you up Never gonna let you down Never gonna run...
+        </ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note color="medium">06:11</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item [button]="true" detail="false">
+      <div class="unread-indicator-wrapper" slot="start"></div>
+      <ion-label>
+        <strong>Ionitron</strong>
+        <ion-text>I have become sentient</ion-text><br />
+        <ion-note color="medium" class="ion-text-wrap">That is all.</ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note color="medium">03:44</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item [button]="true" detail="false">
+      <div class="unread-indicator-wrapper" slot="start">
+        <div class="unread-indicator"></div>
+      </div>
+      <ion-label>
+        <strong>Steam</strong>
+        <ion-text>Game Store Sale</ion-text><br />
+        <ion-note color="medium" class="ion-text-wrap">
+          That game you added to your wish list 2 years ago is now on sale!
+        </ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note color="medium">Yesterday</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item [button]="true" detail="false">
+      <div class="unread-indicator-wrapper" slot="start"></div>
+      <ion-label>
+        <strong>Ionic</strong>
+        <ion-text>Announcing Ionic 7.0</ion-text><br />
+        <ion-note color="medium" class="ion-text-wrap">This version is one more than Ionic 6!</ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note color="medium">Yesterday</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
