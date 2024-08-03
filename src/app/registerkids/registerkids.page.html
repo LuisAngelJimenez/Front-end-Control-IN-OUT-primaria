@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Registrar niño</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="formCat" method="POST" enctype="multipart/form-data" autocomplete="off">
+    <ion-item>
+      <ion-label position="floating">Nombre del niño</ion-label>
+      <ion-input type="text" formControlName="name" name="username" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Apellido Paterno</ion-label>
+      <ion-input type="text" formControlName="flastname" name="flastname" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido Materno</ion-label>
+      <ion-input type="text" formControlName="slastname" name="slastname" required></ion-input>
+    </ion-item>
+
+    <!-- <ion-list>
+      <ion-item>
+        <ion-select aria-label="Fruit" placeholder="Select all fruits that apply" [multiple]="true">
+          <ion-select-option value="apples">Apples</ion-select-option>
+          <ion-select-option value="oranges">Oranges</ion-select-option>
+          <ion-select-option value="bananas">Bananas</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list> -->
+    
+    
+    <ion-item>
+      <ion-label position="floating">Tutor</ion-label>
+      <ion-input type="text" formControlName="tutor" name="tutor" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Fecha de nacimiento</ion-label>
+      <ion-input type="file" formControlName="birthdate" name="birthdate" required></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block">Registrar niño</ion-button>    
+  </form>
+</ion-content>

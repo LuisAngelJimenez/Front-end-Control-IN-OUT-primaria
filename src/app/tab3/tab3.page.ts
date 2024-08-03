@@ -13,9 +13,7 @@ export class Tab3Page {
     
   }
 
-  cambiarIdioma(idiomaSeleccionado: string) {
-   
-  }
+
 
   async initializeApp() {
     await this.storage.create();

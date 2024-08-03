@@ -18,6 +18,7 @@ export class RegisterPage implements OnInit {
   ngOnInit() {}
 
   async register() {
+    // Valida los datos del formulario antes de registrar al usuario
     if (!this.username || !this.lastname || !this.grupo || !this.edad) {
       // Verifica si alguno de los campos está vacío
       this.presentToast('Por favor, rellena todos los campos');
