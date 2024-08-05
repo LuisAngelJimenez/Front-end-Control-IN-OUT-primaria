@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>QR Code</ion-title>
+    <ion-title>Codigo de autorización</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">Cerrar</ion-button>
     </ion-buttons>
@@ -11,4 +11,16 @@
   <div class="qr-container">
     <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
   </div>
+  <ion-card *ngIf="selectedKid">
+    <ion-card-header>
+      <ion-card-title>Datos del alumno</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><ion-icon slot="start" name="person"></ion-icon> <strong>Nombre:</strong> {{selectedKid.name}} {{selectedKid.flastname}} {{selectedKid.slastname}}</p>
+      <p><ion-icon slot="start" name="grid"></ion-icon> <strong>Grado y Grupo:</strong> {{selectedKid.group.name}}</p>
+      <p><ion-icon slot="start" name="logo-tumblr"></ion-icon> <strong>Tutor:</strong> {{selectedKid.tutor[0].name}} {{selectedKid.tutor[0].flastname}} {{selectedKid.tutor[0].slastname}}</p>
+      <p><ion-icon slot="start" name="phone-portrait"></ion-icon> <strong>Telefono:</strong> {{selectedKid.tutor[0].phone}}</p>
+      <p><ion-icon slot="start" name="compass"></ion-icon> <strong>Dirección:</strong> Calle {{selectedKid.tutor[0].street}}, número #{{selectedKid.tutor[0].number}}, Colonia {{selectedKid.tutor[0].neighborhood}}, {{selectedKid.tutor[0].city}}, CP {{selectedKid.tutor[0].zip}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

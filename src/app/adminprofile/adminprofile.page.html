@@ -1,0 +1,44 @@
+<ion-header mode="ios" [translucent]="true">
+</ion-header>
+<ion-content color="light" mode="ios" [fullscreen]="true">
+  <ion-card class="avatar-card"><br>
+    <ion-card-content>
+      <ion-item class="pad">
+        <ion-card-title>Lista de alumnos</ion-card-title>
+        <ion-icon name="newspaper-outline" slot="end"></ion-icon>
+      </ion-item>
+      <br>
+      <ion-list>
+        <ion-item color="success" size="small" shape="round" class="ion-text-wrap centrado">
+          <ion-select shape="round" placeholder="Seleccionar grupo" (ionChange)="onChangeGrupo($event)">
+            <ion-icon slot="start" name="people" aria-hidden="true"></ion-icon>
+            <ion-select-option *ngFor="let grupo of grupos" [value]="grupo.id">Grupo: {{ grupo.name
+              }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list [inset]="true" mode="ios">
+        <ng-container *ngFor="let kid of kids">
+          <ion-item color="light" *ngIf="kid.group.id === selectedGrupo" [button]="true" detail="false" mode="ios">
+            <div class="unread-indicator-wrapper" slot="start">
+              <div class="unread-indicator"></div>
+            </div>
+            <ion-label>
+              <ion-item color="light">
+                <ion-avatar slot="start">
+                  <img alt="Silhouette of a person's head" src="{{kid.img}}" />
+                </ion-avatar>
+                <ion-label>Alumno: {{ kid.name }} {{ kid.flastname }} {{ kid.slastname }}</ion-label>
+              </ion-item>
+            </ion-label>
+            <div class="metadata-end-wrapper" slot="end">
+              <ion-icon color="medium" name="chevron-forward"></ion-icon>
+            </div>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -24,15 +24,23 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'registerkids',
+        loadChildren: () => import('../registerkids/registerkids.module').then(m => m.RegisterkidsPageModule)
+      },
+      {
+        path: 'adminprofile',
+        loadChildren: () => import('../adminprofile/adminprofile.module').then( m => m.AdminprofilePageModule)
+      },
+      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/adminprofile',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/adminprofile',
     pathMatch: 'full'
   }
 ];

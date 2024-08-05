@@ -47,7 +47,7 @@ ion-label ion-note {
 }
 
 .center-avatar {
-  margin-top: 20px; /* Espacio entre el avatar y la información */
+  margin-top: 60px; /* Espacio entre el avatar y la información */
 }
 
 ion-card-content {
@@ -58,3 +58,17 @@ ion-card-content {
   padding-left: 1rem;
   padding-top: 1rem;
 }
+
+
+ion-select.always-flip::part(icon) {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ion-select.always-flip.select-expanded::part(icon) {
+  transform: rotate(180deg);
+}
+
+ion-select.never-flip::part(icon) {
+  transform: none;
+}
+

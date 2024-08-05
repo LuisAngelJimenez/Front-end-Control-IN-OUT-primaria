@@ -13,6 +13,7 @@ import { LoginPage } from './login/login.page';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { QrModalComponent } from './qr-modal/qr-modal.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,10 +24,10 @@ import { QRCodeModule } from 'angularx-qrcode';
       FormsModule,
       IonicStorageModule.forRoot(),
       QRCodeModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
     ],
 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
