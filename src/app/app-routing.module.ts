@@ -16,13 +16,15 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     //canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'registerkids',
     loadChildren: () => import('./registerkids/registerkids.module').then( m => m.RegisterkidsPageModule)
   },
   {
     path: 'adminprofile',
     loadChildren: () => import('./adminprofile/adminprofile.module').then( m => m.AdminprofilePageModule)
+
   }
 
 

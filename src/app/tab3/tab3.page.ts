@@ -19,6 +19,7 @@ export class Tab3Page {
     console.log('Datos del usuario logueado:', this.currentUser);
   }
 
+
   async initializeApp() {
     await this.storage.create();
     const isDark = await this.storage.get('darkTheme');

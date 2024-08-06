@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular'; // Importa ToastController
 import { ApisService } from '../services/apis.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './registerkids.page.html',
@@ -48,6 +49,7 @@ export class RegisterkidsPage implements OnInit {
       }
     );
   }
+
 
   async crearForm() {
     this.formCat = this.fb.group({

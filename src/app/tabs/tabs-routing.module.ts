@@ -32,6 +32,7 @@ const routes: Routes = [
         loadChildren: () => import('../adminprofile/adminprofile.module').then( m => m.AdminprofilePageModule)
       },
       {
+
         path: '',
         redirectTo: '/tabs/adminprofile',
         pathMatch: 'full'
