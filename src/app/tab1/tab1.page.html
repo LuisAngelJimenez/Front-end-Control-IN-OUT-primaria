@@ -1,94 +1,66 @@
-<ion-header mode="ios" [translucent]="true">
+ <ion-header mode="ios" [translucent]="true">
 </ion-header>
 <ion-content color="light" mode="ios" [fullscreen]="true">
   <ion-card class="avatar-card"><br>
     <ion-avatar class="center-avatar">
-      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      <img alt="perfil" [src]="selectedKid?.img || 'https://static3.depositphotos.com/1003827/178/i/450/depositphotos_1786336-stock-photo-beauty-a-little-girl.jpg'" />
     </ion-avatar>
     <ion-card-content>
-      <ion-item class="pad">
-        <ion-card-title>Omar Alejandro Gonzalez Ruiz</ion-card-title>
-        <ion-select [multiple]="true">
-          <ion-select-option value="apples">Jose Luis Gonzalez Ruiz</ion-select-option>
-          <ion-select-option value="oranges">Adalis Gonzales Ruiz</ion-select-option>
-        </ion-select>
-      </ion-item>
       <ion-list>
         <ion-item>
-          <ion-label>Grado: <a>3°</a></ion-label>
-          <ion-label>Fecha: <a>21/07/2024</a></ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Grupo: <a>A</a></ion-label>
-          <ion-label>Hra de salida:<a>1:30pm</a></ion-label>
+          <ion-select
+            class="always-flip"
+            toggleIcon="caret-down-sharp"
+            interface="popover"
+            label="Alumno:"
+            [(ngModel)]="selectedKidId"
+            (ionChange)="onKidChange($event)"
+            placeholder="Select a kid"
+          >
+            <ion-select-option *ngFor="let kid of currentUserKids" [value]="kid.id">{{kid.name}} {{kid.flastname}} {{kid.slastname}}</ion-select-option>
+          </ion-select>
         </ion-item>
       </ion-list>
-      <ion-item>
+
+      <ion-list *ngIf="selectedKid">
+        <ion-item>
+          <ion-label>Grado y Grupo: <a>{{selectedKid.group.name}}</a></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tutor: <a>{{selectedKid.tutor[0].name}} {{selectedKid.tutor[0].flastname}} {{selectedKid.tutor[0].slastname}}</a></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Direccion: <a>Calle {{selectedKid.tutor[0].street}}, numero #{{selectedKid.tutor[0].number}}, Colonia {{selectedKid.tutor[0].neighborhood}}, {{selectedKid.tutor[0].city}}, CP {{selectedKid.tutor[0].zip}}</a></ion-label>
+        </ion-item>
+      </ion-list><br>
         <ion-button size="large" shape="round" class="ion-text-wrap" (click)="openQrModal()">
           GENERAR CODIGO Qr
           <ion-icon slot="end" name="qr-code-outline"></ion-icon>
         </ion-button>
-      </ion-item>
     </ion-card-content>
   </ion-card>
 
-
   <ion-list [inset]="true" mode="ios">
-    <ion-item [button]="true" detail="false" mode="ios">
+    <ion-item>
       <div class="unread-indicator-wrapper" slot="start">
         <div class="unread-indicator"></div>
       </div>
       <ion-label>
-        <strong>Rick Astley</strong>
-        <ion-text>Never Gonna Give You Up</ion-text><br />
+        <strong>Estado del alumno</strong>
+        <ion-text *ngIf="selectedKid?.is_active === true">
+        El alumno está en clases
+        </ion-text>
+        <ion-text *ngIf="selectedKid?.is_active === false">
+          El alumno fue recogido
+        </ion-text><br />
         <ion-note color="medium" class="ion-text-wrap">
-          Never gonna give you up Never gonna let you down Never gonna run...
+          Fecha: {{dateString}}
+        </ion-note><br>
+        <ion-note color="medium" class="ion-text-wrap">
+          Hora: {{timeString}}
         </ion-note>
       </ion-label>
-      <div class="metadata-end-wrapper" slot="end">
-        <ion-note color="medium">06:11</ion-note>
-        <ion-icon color="medium" name="chevron-forward"></ion-icon>
-      </div>
-    </ion-item>
-    <ion-item [button]="true" detail="false">
-      <div class="unread-indicator-wrapper" slot="start"></div>
-      <ion-label>
-        <strong>Ionitron</strong>
-        <ion-text>I have become sentient</ion-text><br />
-        <ion-note color="medium" class="ion-text-wrap">That is all.</ion-note>
-      </ion-label>
-      <div class="metadata-end-wrapper" slot="end">
-        <ion-note color="medium">03:44</ion-note>
-        <ion-icon color="medium" name="chevron-forward"></ion-icon>
-      </div>
-    </ion-item>
-    <ion-item [button]="true" detail="false">
-      <div class="unread-indicator-wrapper" slot="start">
-        <div class="unread-indicator"></div>
-      </div>
-      <ion-label>
-        <strong>Steam</strong>
-        <ion-text>Game Store Sale</ion-text><br />
-        <ion-note color="medium" class="ion-text-wrap">
-          That game you added to your wish list 2 years ago is now on sale!
-        </ion-note>
-      </ion-label>
-      <div class="metadata-end-wrapper" slot="end">
-        <ion-note color="medium">Yesterday</ion-note>
-        <ion-icon color="medium" name="chevron-forward"></ion-icon>
-      </div>
-    </ion-item>
-    <ion-item [button]="true" detail="false">
-      <div class="unread-indicator-wrapper" slot="start"></div>
-      <ion-label>
-        <strong>Ionic</strong>
-        <ion-text>Announcing Ionic 7.0</ion-text><br />
-        <ion-note color="medium" class="ion-text-wrap">This version is one more than Ionic 6!</ion-note>
-      </ion-label>
-      <div class="metadata-end-wrapper" slot="end">
-        <ion-note color="medium">Yesterday</ion-note>
-        <ion-icon color="medium" name="chevron-forward"></ion-icon>
-      </div>
     </ion-item>
   </ion-list>
+
 </ion-content>

@@ -14,7 +14,8 @@ import { RegisterkidsPage } from './registerkids.page';
     FormsModule,
     IonicModule,
     RegisterkidsPageRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
+
   ],
   declarations: [RegisterkidsPage]
 })

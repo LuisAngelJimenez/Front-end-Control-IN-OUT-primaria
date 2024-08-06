@@ -8,11 +8,16 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./tab3.page.scss'],
 })
 export class Tab3Page {
+  currentUser: any;
+
   constructor(private storage: Storage,private authService: AuthService) {
     this.initializeApp();
-    
   }
 
+  ngOnInit() {
+    this.currentUser = this.authService.getCurrentUser();
+    console.log('Datos del usuario logueado:', this.currentUser);
+  }
 
 
   async initializeApp() {

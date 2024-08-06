@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-qr-modal',
-  templateUrl: './qr-modal.component.html',
-  styleUrls: ['./qr-modal.component.scss'],
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
 })
-export class QrModalComponent implements OnInit {
+export class ModalComponent implements OnInit {
+
   @Input() qrData!: string;
   @Input() selectedKid: any;
 

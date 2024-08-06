@@ -1,16 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">Registrar niño</ion-title>
-  </ion-toolbar>
+  <ion-item color="light">
+    <ion-card-title>Registrar alumnos</ion-card-title>
+    <ion-icon name="newspaper-outline" slot="end"></ion-icon>
+  </ion-item>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="formCat" method="POST" enctype="multipart/form-data" autocomplete="off">
+  <form [formGroup]="formCat" (ngSubmit)="submit()" method="POST" enctype="multipart/form-data" autocomplete="off">
     <ion-item>
-      <ion-label position="floating">Nombre del niño</ion-label>
+      <ion-label position="floating">Nombre del alumno</ion-label>
       <ion-input type="text" formControlName="name" name="username" required></ion-input>
     </ion-item>
-    
+
+
     <ion-item>
       <ion-label position="floating">Apellido Paterno</ion-label>
       <ion-input type="text" formControlName="flastname" name="flastname" required></ion-input>
@@ -21,27 +23,33 @@
       <ion-input type="text" formControlName="slastname" name="slastname" required></ion-input>
     </ion-item>
 
-    <!-- <ion-list>
+    <ion-list>
       <ion-item>
-        <ion-select aria-label="Fruit" placeholder="Select all fruits that apply" [multiple]="true">
-          <ion-select-option value="apples">Apples</ion-select-option>
-          <ion-select-option value="oranges">Oranges</ion-select-option>
-          <ion-select-option value="bananas">Bananas</ion-select-option>
+        <ion-select aria-label="Tutor" placeholder="Selecciona al tutor del niño" formControlName="tutor">
+          <ion-select-option *ngFor="let tutor of tutors" [value]="tutor.id">{{ tutor.name }}</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-list> -->
-    
-    
-    <ion-item>
-      <ion-label position="floating">Tutor</ion-label>
-      <ion-input type="text" formControlName="tutor" name="tutor" required></ion-input>
-    </ion-item>
-    
+    </ion-list>
+<br>
+    <ion-list>
+      <ion-item>
+        <ion-select aria-label="Grupos" placeholder="Selecciona el grupo del niño" formControlName="group">
+          <ion-select-option *ngFor="let grupo of grupos" [value]="grupo.id">{{ grupo.name }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+<br>
     <ion-item>
       <ion-label position="floating">Fecha de nacimiento</ion-label>
-      <ion-input type="file" formControlName="birthdate" name="birthdate" required></ion-input>
+      <ion-input type="date" formControlName="birthdate" name="birthdate" required></ion-input>
     </ion-item>
 
-    <ion-button type="submit" expand="block">Registrar niño</ion-button>    
+    <ion-item>
+      <ion-label position="floating">Foto de perfil</ion-label>
+      <ion-input type="file" (change)="onFileSelected($event)" formControlName="file"></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="!formCat.valid" type="submit" expand="block" shape="round">Registrar niño</ion-button>
   </form>
 </ion-content>
+

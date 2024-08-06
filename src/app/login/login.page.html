@@ -1,7 +1,7 @@
 <div class="centradot">
   <ion-card shape="round" color="light" mode="md">
-    <ion-card-header >
-      <img alt="Logo de nuestra app" class="imagen-grande" src="./assets/img/storeify.png" />
+    <ion-card-header>
+      <img alt="Logo de nuestra app" class="imagen-grande" src="./assets/img/favicon.png" />
       <br>
       <ion-card-title class="tit">👋 Bienvenido 👋</ion-card-title>
       <br>
@@ -10,7 +10,7 @@
     </ion-card-header>
     <form [formGroup]="loginForm" (ngSubmit)="login()" color="light">
       <ion-item color="light">
-        <ion-input color="light" formControlName="email" labelPlacement="stacked" label="Email"
+        <ion-input color="light" formControlName="email" labelPlacement="stacked" label="Correo"
           placeholder="email@domain.com">
           <ion-icon slot="start" name="mail" aria-hidden="true"></ion-icon>
           <ion-button fill="clear" slot="end" aria-label="Show/hide">
@@ -19,7 +19,7 @@
         </ion-input>
       </ion-item>
       <ion-item color="light">
-        <ion-input color="light" formControlName="password" labelPlacement="stacked" label="Password"
+        <ion-input color="light" formControlName="password" type="password" labelPlacement="stacked" label="Contraseña"
           placeholder="*******">
           <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
           <ion-button fill="clear" slot="end" aria-label="Show/hide">
@@ -30,7 +30,7 @@
       <br>
       <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" class="centrado">Iniciar sesión</ion-button>
       <br>
-      <ion-label color="secondary" class="centrado">¿No tienes cuenta? <a href=""> Registrate</a></ion-label>
+      <a class="centrado">Para registro, comunicate con control escolar</a>
       <br>
     </form>
   </ion-card>

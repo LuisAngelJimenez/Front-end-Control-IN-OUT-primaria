@@ -1,30 +1,87 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">Registrar niño</ion-title>
-  </ion-toolbar>
+ <ion-header color="light">
+  <ion-item color="light">
+    <ion-card-title>Registrar tutores o administradores</ion-card-title>
+    <ion-icon name="newspaper-outline" slot="end"></ion-icon>
+  </ion-item>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form (ngSubmit)="register()" autocomplete="off">
+  <form [formGroup]="formCat" autocomplete="off" (ngSubmit)="submit()" method="POST" enctype="multipart/form-data">
+
+    <ion-list>
+      <ion-item>
+        <ion-select labelPlacement="stacked" label="Seleccione el rol" value="tutor" formControlName="rol">
+          <ion-icon slot="start" name="leaf" aria-hidden="true"></ion-icon>
+          <ion-select-option value="tutor">Tutor</ion-select-option>
+          <ion-select-option value="administrador">Administrador</ion-select-option>
+          <ion-select-option value="encargado">Maestro/Encargado</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+<br>
     <ion-item>
-      <ion-label position="floating">Nombre del niño</ion-label>
-      <ion-input type="text" [(ngModel)]="username" name="username" required></ion-input>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
-    
+
     <ion-item>
-      <ion-label position="floating">Apellido</ion-label>
-      <ion-input type="text" [(ngModel)]="lastname" name="lastname" required></ion-input>
+      <ion-label position="floating">Apellido Paterno</ion-label>
+      <ion-input type="text" formControlName="flastname"></ion-input>
     </ion-item>
-    
+
     <ion-item>
-      <ion-label position="floating">Edad</ion-label>
-      <ion-input type="number" [(ngModel)]="edad" name="edad" required></ion-input>
+      <ion-label position="floating">Apellido Materno</ion-label>
+      <ion-input type="text" formControlName="slastname"></ion-input>
     </ion-item>
-    
+
     <ion-item>
-      <ion-label position="floating">Grupo</ion-label>
-      <ion-input type="text" [(ngModel)]="grupo" name="grupo" required></ion-input>
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+      <ion-input type="date" formControlName="birthdate"></ion-input>
     </ion-item>
-    <ion-button type="submit" expand="block">Registrarse</ion-button>    
+
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input type="number" formControlName="phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">CURP</ion-label>
+      <ion-input type="text" formControlName="curp" min="18"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Número</ion-label>
+      <ion-input type="number" formControlName="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Calle</ion-label>
+      <ion-input type="text" formControlName="street"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Colonia</ion-label>
+      <ion-input type="text" formControlName="neighborhood"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Ciudad</ion-label>
+      <ion-input type="text" formControlName="city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Código Postal</ion-label>
+      <ion-input type="number" formControlName="zip"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Archivo</ion-label>
+      <ion-input type="file" (change)="onFileSelected($event)" formControlName="file"></ion-input>
+    </ion-item>
+    <ion-button [disabled]="!formCat.valid" type="submit" expand="block" shape="round">Registrar</ion-button>
   </form>
 </ion-content>
