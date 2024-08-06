@@ -14,10 +14,11 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { QrModalComponent } from './qr-modal/qr-modal.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { provideHttpClient } from '@angular/common/http';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
-  declarations: [AppComponent,LoginPage,QrModalComponent],
+  declarations: [AppComponent,LoginPage,QrModalComponent,ModalComponent],
   imports: [BrowserModule,
      IonicModule.forRoot(),
       AppRoutingModule,

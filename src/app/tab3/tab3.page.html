@@ -35,11 +35,19 @@
           <ion-label>{{ currentUser.rol }}</ion-label>
         </ion-item>
       </ion-list>
+      <ion-item>
+        <ion-label>Tema Oscuro</ion-label>
+        <ion-toggle (ionChange)="toggleTheme($event)" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-label>Cerrar Sesión</ion-label>
+        <ion-icon slot="end" name="log-out"></ion-icon>
+      </ion-item>
     </ion-card-content>
   </ion-card>
   <ion-list>
   </ion-list>
-
+<!--
   <br>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -54,5 +62,5 @@
       </ion-fab-button>
     </ion-fab-list>
 
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>

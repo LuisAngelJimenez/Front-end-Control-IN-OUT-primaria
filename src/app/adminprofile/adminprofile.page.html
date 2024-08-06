@@ -20,7 +20,7 @@
 
       <ion-list [inset]="true" mode="ios">
         <ng-container *ngFor="let kid of kids">
-          <ion-item color="light" *ngIf="kid.group.id === selectedGrupo" [button]="true" detail="false" mode="ios">
+          <ion-item color="light" *ngIf="kid.group.id === selectedGrupo" [button]="true" detail="false" mode="ios" (click)="openQrModal(kid)">
             <div class="unread-indicator-wrapper" slot="start">
               <div class="unread-indicator"></div>
             </div>
@@ -38,7 +38,6 @@
           </ion-item>
         </ng-container>
       </ion-list>
-
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -47,8 +47,11 @@
       </div>
       <ion-label>
         <strong>Estado del alumno</strong>
-        <ion-text>
-          {{ selectedKid?.is_active ? 'El alumno está en clases' : 'El alumno fue recogido' }}
+        <ion-text *ngIf="selectedKid?.is_active === true">
+        El alumno está en clases
+        </ion-text>
+        <ion-text *ngIf="selectedKid?.is_active === false">
+          El alumno fue recogido
         </ion-text><br />
         <ion-note color="medium" class="ion-text-wrap">
           Fecha: {{dateString}}

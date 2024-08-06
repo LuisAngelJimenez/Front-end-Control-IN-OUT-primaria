@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Codigo de autorización</ion-title>
+    <ion-title>DATOS DEL ALUMNO</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">Cerrar</ion-button>
     </ion-buttons>
@@ -8,12 +8,9 @@
 </ion-header>
 
 <ion-content>
-  <div class="qr-container">
-    <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-  </div>
   <ion-card *ngIf="selectedKid">
     <ion-card-header>
-      <ion-card-title>Datos del alumno</ion-card-title>
+      <ion-card-title>Información general:</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
@@ -41,6 +38,13 @@
             {{selectedKid.tutor[0].zip}}</ion-label>
         </ion-item>
       </ion-list>
+      <br>
+      <ion-button size="large" shape="round" class="ion-text-wrap">
+        Escánear CODIGO QR
+        <ion-icon slot="end" name="qr-code-outline"></ion-icon>
+      </ion-button>
+
     </ion-card-content>
+
   </ion-card>
 </ion-content>

@@ -13,7 +13,7 @@ import { AdminprofilePage } from './adminprofile.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    AdminprofilePageRoutingModule
+    AdminprofilePageRoutingModule,
   ],
   declarations: [AdminprofilePage]
 })
