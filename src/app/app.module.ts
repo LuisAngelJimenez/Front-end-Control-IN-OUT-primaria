@@ -15,10 +15,25 @@ import { QrModalComponent } from './qr-modal/qr-modal.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { provideHttpClient } from '@angular/common/http';
 import { ModalComponent } from './modal/modal.component';
+import { QRScanner } from '@ionic-native/qr-scanner';
+import { ScannerComponent } from './scanner/scanner.component';
+
+//importaciones para utilizar ngx-translate//
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+//importaciones para el interceptor//
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 @NgModule({
-  declarations: [AppComponent,LoginPage,QrModalComponent,ModalComponent],
+  declarations: [AppComponent,LoginPage,QrModalComponent,ModalComponent,ScannerComponent],
   imports: [BrowserModule,
      IonicModule.forRoot(),
       AppRoutingModule,
@@ -26,10 +41,33 @@ import { ModalComponent } from './modal/modal.component';
       IonicStorageModule.forRoot(),
       QRCodeModule,
       ReactiveFormsModule,
+      HttpClientModule,
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      }),
     ],
 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    provideHttpClient(),/* QRScanner */
+  {provide: HTTP_INTERCEPTORS,useClass:LoggingInterceptor,multi:true,}],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+
+
+
+export class AppModule {
+  constructor(translate: TranslateService){
+
+    const savedLang =  localStorage.getItem('selectedLanguage') || 'es';
+    translate.setDefaultLang(savedLang);
+    translate.use(savedLang);
+
+  }
+}
+

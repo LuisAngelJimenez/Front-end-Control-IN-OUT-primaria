@@ -1,0 +1,16 @@
+.scanner-ui {
+  display: none;
+}
+.scanner-hide {
+  visibility: visible;
+}
+
+body.qrscanner {
+  background-color: transparent;
+}
+body.qrscanner .scanner-ui {
+  display: block;
+}
+body.qrscanner .scanner-hide {
+  visibility: hidden;
+}
