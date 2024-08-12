@@ -54,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     provideHttpClient(),/* QRScanner */
-  {provide: HTTP_INTERCEPTORS,useClass:LoggingInterceptor,multi:true,}],
+  {provide: HTTP_INTERCEPTORS,useClass:LoggingInterceptor,multi:true,}
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
