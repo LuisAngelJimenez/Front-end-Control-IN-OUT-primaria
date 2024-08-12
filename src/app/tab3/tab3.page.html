@@ -1,11 +1,11 @@
 <ion-header>
   <ion-item color="light">
-    <ion-card-title>Configuración</ion-card-title>
+    <ion-card-title>{{ 'CONFIGURATION' | translate }}</ion-card-title>
     <ion-icon name="newspaper-outline" slot="end"></ion-icon>
   </ion-item>
 </ion-header>
 
-<ion-content>
+<ion-content> 
 
   <ion-card *ngIf="currentUser">
     <img alt="Silhouette of mountains" src="{{ currentUser.img }}" />
@@ -36,31 +36,23 @@
         </ion-item>
       </ion-list>
       <ion-item>
-        <ion-label>Tema Oscuro</ion-label>
+        <ion-label>{{ 'DARK_THEME' | translate }}</ion-label>
         <ion-toggle (ionChange)="toggleTheme($event)" slot="end"></ion-toggle>
       </ion-item>
+      <ion-item>
+        <ion-label>{{ 'LANGUAGE' | translate }}</ion-label>
+        <ion-select placeholder="{{ 'SELECT_LANGUAGE' | translate }}" slot="end"
+          (ionChange)="changeLanguage($event.detail.value)">
+          <ion-select-option value="es">Español</ion-select-option>
+          <ion-select-option value="en">Inglés</ion-select-option>
+          <ion-select-option value="fr">Francés</ion-select-option>
+        </ion-select>
+      </ion-item>
       <ion-item (click)="logout()">
-        <ion-label>Cerrar Sesión</ion-label>
+        <ion-label>{{ 'LOGOUT' | translate }}</ion-label>
         <ion-icon slot="end" name="log-out"></ion-icon>
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-list>
-  </ion-list>
-<!--
-  <br>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success">
-      <ion-icon name="options-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="start">
-      <ion-fab-button (click)="logout()" color="danger"><ion-icon name="log-out">
-        </ion-icon>
-      </ion-fab-button>
-      <ion-fab-button (click)="toggleTheme($event)" color="tertiary"><ion-icon name="contrast-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-
-  </ion-fab> -->
 </ion-content>
